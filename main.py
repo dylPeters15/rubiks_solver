@@ -1,27 +1,34 @@
 from Tkinter import *
-from ttk import *
+from ThreeByThreeModel import ThreeByThreeModel
 
-window = Tk()
+window = None
+canvas = None
 
-canvas = Canvas(window, width=300, height=300)
+def createWindowAndCanvas():
+    global window
+    global canvas
 
-window.title("Rubik's Cube Solver")
+    window = Tk()
+    window.title("Rubik's Cube Solver")
 
-# window.geometry('350x200')
+    canvas = Canvas(window, width=300, height=300)
 
-# combo = Combobox(window)
-#
-# combo['values'] = ("white", "red", "blue", "orange", "green", "yellow")
-#
-# combo.current(1)  # set the selected item
-#
-# combo.grid(column=1, row=1)
+def createRubiksGrid():
+    id = canvas.create_rectangle(100, 100, 201, 201, fill="grey", tags="asdf")
+    canvas.tag_bind("asdf","<Button-1>",rectangleClicked)
 
-def clicked(*args):
-    print("You clicked play!")
+def packAndStart():
+    canvas.pack()
+    window.mainloop()
 
-id = canvas.create_rectangle(100, 100, 201, 201, fill="blue", tags="asdf")
-canvas.tag_bind("asdf","<Button-1>",clicked)
 
-canvas.pack()
-window.mainloop()
+def rectangleClicked(*args):
+    print("You clicked rectangle {}".format(args))
+
+
+createWindowAndCanvas()
+createRubiksGrid()
+packAndStart()
+
+model = ThreeByThreeModel()
+print model.string_value()
