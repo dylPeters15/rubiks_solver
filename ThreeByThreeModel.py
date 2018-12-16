@@ -48,6 +48,9 @@ class ThreeByThreeModel:
     def distance_from_solved(self):
         return
 
+    def is_valid(self):
+        return
+
     def value(self):
         value = []
         for face in self.squares:
