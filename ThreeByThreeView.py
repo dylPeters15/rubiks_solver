@@ -2,11 +2,7 @@ from Tkinter import *
 from ThreeByThreeModel import ThreeByThreeModel
 
 class ThreeByThreeView():
-    def __init__(self,initialModel=None):
-        if initialModel == None:
-            self.model = ThreeByThreeModel()
-        else:
-            self.model = initialModel
+    def __init__(self):
 
         self.window = None
         self.canvas = None
@@ -16,7 +12,8 @@ class ThreeByThreeView():
         self.packAndStart()
 
     def get_model(self):
-        return self.model
+        #TODO
+        return None
 
     def createWindowAndCanvas(self):
         self.window = Tk()
