@@ -1,5 +1,6 @@
 from ThreeByThreeModel import ThreeByThreeModel
 from queue import PriorityQueue
+from heapdict.heapdict import heapdict
 
 initial_data = "ooooooooogggwwwbbbgggwwwbbbgggwwwbbbrrrrrrrrryyyyyyyyy"
 # print(len(set(ThreeByThreeModel(initial_data).get_neighbors())))
@@ -21,13 +22,27 @@ all.append(model)
 all.extend(neighbors)
 all.extend(neighbors_of_neighbors)
 
-print(len(all))
+print("Length of all: {}".format(len(all)))
+print("Length of set(all): {}".format(len(set(all))))
 
-pq = PriorityQueue()
+hd = heapdict()
 for current in all:
-    pq.put(current)
-    print(current)
+    if current in hd:
+        if hd[current] > current.dist + current.distance_from_solved:
+            hd[current] = current.dist + current.distance_from_solved
+    else:
+        hd[current] = current.dist + current.distance_from_solved
 
-print("PQ Size: {}".format(pq.qsize()))
-while not pq.empty():
-    print(pq.get())
+
+print("size of hd: {}".format(len(hd)))
+while len(hd) != 0:
+    print(hd.popitem())
+
+# pq = PriorityQueue()
+# for current in all:
+#     pq.put(current)
+#     print(current)
+#
+# print("PQ Size: {}".format(pq.qsize()))
+# while not pq.empty():
+#     print(pq.get())

@@ -46,7 +46,8 @@ class ThreeByThreeModel:
         return self.dist + self.distance_from_solved <= other.dist + other.distance_from_solved
 
     def __eq__(self, other):
-        return self.dist + self.distance_from_solved == other.dist + other.distance_from_solved
+        return self.data == other.data
+        # return self.dist + self.distance_from_solved == other.dist + other.distance_from_solved
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -56,6 +57,9 @@ class ThreeByThreeModel:
 
     def __ge__(self, other):
         return self.dist + self.distance_from_solved >= other.dist + other.distance_from_solved
+
+    def __hash__(self):
+        return self.data.__hash__()
 
     def get_neighbors(self):
         return [
