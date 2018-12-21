@@ -88,7 +88,10 @@ class ThreeByThreeView:
         for square in self.rubiks_squares:
             data += square.fill[0]
         print("Starting search")
-        print(a_star(ThreeByThreeModel(data=data)))
+        path = a_star(ThreeByThreeModel(data=data))
+        print(path)
+        for state in path:
+            print(state.in_edge)
         print("Finished search")
 
 if __name__ == "__main__":

@@ -7,15 +7,19 @@ def a_star(initial_config):
     solved_config = None
     hd[initial_config] = initial_config.get_a_star_weight()
 
+    num_iterations = 0
     while len(hd) > 0 and solved_config is None:
+        num_iterations += 1
+        if num_iterations % 1000 == 0:
+            print("num_iterations: {}".format(num_iterations))
         current = hd.popitem()[0]
-        print("Current: {}".format(current))
+        # print("Current: {}".format(current))
         if current.is_solved():
             solved_config = current
             break
 
         for neighbor in current.get_neighbors():
-            print("Neighbor: {}".format(neighbor))
+            # print("Neighbor: {}".format(neighbor))
             if neighbor in hd:
                 if neighbor.get_a_star_weight() < hd[neighbor]:
                     hd[neighbor] = neighbor.get_a_star_weight()

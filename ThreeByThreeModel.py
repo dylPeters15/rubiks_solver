@@ -36,14 +36,14 @@ class ThreeByThreeModel:
         return self.__str__()
 
     def __str__(self):
-        return "ThreeByThreeModel: data={}, dist+dist_from_solved: {}, dist={}, in_edge={}".format(self.data, self.dist+self.distance_from_solved, self.dist, self.in_edge)
+        return "ThreeByThreeModel: data={}, a_star_heuristic: {}, dist={}, in_edge={}".format(self.data, self.get_a_star_weight(), self.dist, self.in_edge)
 
     #Methods used for sorting:
     def __lt__(self, other):
-        return self.dist + self.distance_from_solved < other.dist + other.distance_from_solved
+        return self.get_a_star_weight() < other.get_a_star_weight()
 
     def __le__(self, other):
-        return self.dist + self.distance_from_solved <= other.dist + other.distance_from_solved
+        return self.get_a_star_weight() <= other.get_a_star_weight()
 
     def __eq__(self, other):
         return self.data == other.data
@@ -53,16 +53,16 @@ class ThreeByThreeModel:
         return not self.__eq__(other)
 
     def __gt__(self, other):
-        return self.dist + self.distance_from_solved > other.dist + other.distance_from_solved
+        return self.get_a_star_weight() > other.get_a_star_weight()
 
     def __ge__(self, other):
-        return self.dist + self.distance_from_solved >= other.dist + other.distance_from_solved
+        return self.get_a_star_weight() >= other.get_a_star_weight()
 
     def __hash__(self):
         return self.data.__hash__()
 
     def get_a_star_weight(self):
-        return self.dist + self.distance_from_solved
+        return self.dist*13 + self.distance_from_solved
 
     def get_neighbors(self):
         return [
