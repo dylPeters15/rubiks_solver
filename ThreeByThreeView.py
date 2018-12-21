@@ -1,8 +1,10 @@
 from tkinter import *
 from rubiks_square import rubiks_square
-from AStar import AStar
+from a_star import a_star
+from ThreeByThreeModel import ThreeByThreeModel
 
-class ThreeByThreeView():
+
+class ThreeByThreeView:
     def __init__(self):
 
         self.square_size = 25
@@ -81,7 +83,9 @@ class ThreeByThreeView():
         data = ""
         for square in self.rubiks_squares:
             data += square.fill[0]
-        print(AStar(data))
+        print("Starting search")
+        print(a_star(ThreeByThreeModel(data=data)))
+        print("Finished search")
 
 if __name__ == "__main__":
     ThreeByThreeView()
