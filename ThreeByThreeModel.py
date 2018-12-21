@@ -62,7 +62,7 @@ class ThreeByThreeModel:
         return self.data.__hash__()
 
     def get_a_star_weight(self):
-        return self.dist*13 + self.distance_from_solved
+        return self.dist*self.distance_from_solved
 
     def get_neighbors(self):
         return [
@@ -88,19 +88,19 @@ class ThreeByThreeModel:
 
             self._back_clockwise(),
             self._back_two(),
-            self._back_counter_clockwise(),
+            self._back_counter_clockwise()
 
-            self._middle_right_1(),
-            self._middle_right_2(),
-            self._middle_left_1(),
-
-            self._middle_up_1(),
-            self._middle_up_2(),
-            self._middle_down_1(),
-
-            self._middle_clockwise_1(),
-            self._middle_clockwise_2(),
-            self._middle_counterclockwise_1()
+            # self._middle_right_1(),
+            # self._middle_right_2(),
+            # self._middle_left_1(),
+            #
+            # self._middle_up_1(),
+            # self._middle_up_2(),
+            # self._middle_down_1(),
+            #
+            # self._middle_clockwise_1(),
+            # self._middle_clockwise_2(),
+            # self._middle_counterclockwise_1()
         ]
 
     def get_neighbors_data_only(self):
