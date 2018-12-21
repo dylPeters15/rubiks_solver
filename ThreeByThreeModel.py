@@ -1,43 +1,35 @@
+#Immutable class
 class ThreeByThreeModel:
     solved = "ooooooooogggwwwbbbgggwwwbbbgggwwwbbbrrrrrrrrryyyyyyyyy"
 
-    def __init__(self, initial_config=None):
-        if initial_config == None:
+    def __init__(self, data=None, dist=0, prev=None, in_edge=None):
+        if data == None:
             self.data = ThreeByThreeModel.solved
         else:
-            self.data = initial_config
+            self.data = data
 
         self.distance_from_solved = 0
         for i in range(len(self.data)):
             if self.data[i] != ThreeByThreeModel.solved[i]:
                 self.distance_from_solved += 1
 
-    def get_all_next_moves(self):
-        #TODO
-        return
+        self.dist = dist
+        self.prev = prev
+        self.in_edge = in_edge
 
-    #simplified instruction set:
+    def set_prev(self, prev, in_edge):
+        self.prev = prev
+        self.in_edge = in_edge
 
-    def _left_down(self):
-        #TODO
-        return
+    # def get_cost(self):
+    #     return self.get_path_length() + self.distance_from_solved
 
-    def _right_down(self):
-        #TODO
-        return
+    def __hash__(self):
+        return self.data.__hash__()
+        #TODOreturn self.data
+#Need to define hash function so that the priority queue will only hold one instance of each model object
 
-    def _top_right(self):
+    def __cmp__(self, other):
+        return self.dist - other.dist
         #TODO
-        return
-
-    def _bottom_right(self):
-        #TODO
-        return
-
-    def _front_clockwise(self):
-        #TODO
-        return
-
-    def _back_clockwise(self):
-        #TODO
-        return
+#Need to
