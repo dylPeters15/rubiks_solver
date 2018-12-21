@@ -1,6 +1,7 @@
-from Tkinter import *
+from tkinter import *
 from ThreeByThreeModel import ThreeByThreeModel
 from rubiks_square import rubiks_square
+from AStar import AStar
 
 class ThreeByThreeView():
     def __init__(self):
@@ -70,6 +71,18 @@ class ThreeByThreeView():
                 self.rubiks_squares.append(rubiks_square(canvas=self.canvas, x=x, y=y, size=self.square_size, fill=fill))
                 #print "(x,y): ({}, {})".format(x,y)
 
+        Button(self.window,
+                  text="Solve", command=self.solve).place(x=0, y=0)
+
     def packAndStart(self):
         self.canvas.pack()
         self.window.mainloop()
+
+    def solve(self):
+        data = ""
+        for square in self.rubiks_squares:
+            data += square.fill[0]
+        print(AStar(data))
+
+if __name__ == "__main__":
+    ThreeByThreeView()

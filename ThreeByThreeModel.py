@@ -17,19 +17,14 @@ class ThreeByThreeModel:
         self.prev = prev
         self.in_edge = in_edge
 
-    def set_prev(self, prev, in_edge):
-        self.prev = prev
-        self.in_edge = in_edge
-
-    # def get_cost(self):
-    #     return self.get_path_length() + self.distance_from_solved
-
-    def __hash__(self):
-        return self.data.__hash__()
-        #TODOreturn self.data
-#Need to define hash function so that the priority queue will only hold one instance of each model object
-
-    def __cmp__(self, other):
-        return self.dist - other.dist
+    def get_dist(self):
         #TODO
-#Need to
+        return
+
+    def set_dist(self):
+        #TODO
+        return
+
+    def set_prev(self):
+        #TODO
+        return

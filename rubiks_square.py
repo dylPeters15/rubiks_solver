@@ -1,4 +1,4 @@
-from Tkinter import *
+from tkinter import *
 
 class rubiks_square():
     def __init__(self, canvas, x, y, size=10, fill="grey"):
