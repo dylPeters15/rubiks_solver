@@ -56,7 +56,19 @@ class ThreeByThreeModel:
 
             self._back_clockwise(),
             self._back_two(),
-            self._back_counter_clockwise()
+            self._back_counter_clockwise(),
+
+            self._middle_right_1(),
+            self._middle_right_2(),
+            self._middle_left_1(),
+
+            self._middle_up_1(),
+            self._middle_up_2(),
+            self._middle_down_1(),
+
+            self._middle_clockwise_1(),
+            self._middle_clockwise_2(),
+            self._middle_counterclockwise_1()
         ]
 
 ######################################################################
@@ -90,18 +102,18 @@ class ThreeByThreeModel:
 
     def _right_up(self):
         after_move = list(self.data)
-        # after_move[0] = self.data[12]
-        # after_move[3] = self.data[21]
-        # after_move[6] = self.data[30]
-        # after_move[12] = self.data[36]
-        # after_move[21] = self.data[39]
-        # after_move[30] = self.data[42]
-        # after_move[36] = self.data[45]
-        # after_move[39] = self.data[48]
-        # after_move[42] = self.data[51]
-        # after_move[45] = self.data[0]
-        # after_move[48] = self.data[3]
-        # after_move[51] = self.data[6]
+        after_move[2] = self.data[14]
+        after_move[5] = self.data[23]
+        after_move[8] = self.data[32]
+        after_move[14] = self.data[38]
+        after_move[23] = self.data[41]
+        after_move[32] = self.data[44]
+        after_move[38] = self.data[47]
+        after_move[41] = self.data[50]
+        after_move[44] = self.data[53]
+        after_move[47] = self.data[2]
+        after_move[50] = self.data[5]
+        after_move[53] = self.data[8]
         after_move = "".join(after_move)
         return after_move
 
@@ -117,18 +129,18 @@ class ThreeByThreeModel:
 
     def _top_right(self):
         after_move = list(self.data)
-        # after_move[0] = self.data[12]
-        # after_move[3] = self.data[21]
-        # after_move[6] = self.data[30]
-        # after_move[12] = self.data[36]
-        # after_move[21] = self.data[39]
-        # after_move[30] = self.data[42]
-        # after_move[36] = self.data[45]
-        # after_move[39] = self.data[48]
-        # after_move[42] = self.data[51]
-        # after_move[45] = self.data[0]
-        # after_move[48] = self.data[3]
-        # after_move[51] = self.data[6]
+        after_move[9] = self.data[53]
+        after_move[10] = self.data[52]
+        after_move[11] = self.data[51]
+        after_move[12] = self.data[9]
+        after_move[13] = self.data[10]
+        after_move[14] = self.data[11]
+        after_move[15] = self.data[12]
+        after_move[16] = self.data[13]
+        after_move[17] = self.data[14]
+        after_move[53] = self.data[15]
+        after_move[52] = self.data[16]
+        after_move[51] = self.data[17]
         after_move = "".join(after_move)
         return after_move
 
@@ -144,18 +156,18 @@ class ThreeByThreeModel:
 
     def _bottom_right(self):
         after_move = list(self.data)
-        # after_move[0] = self.data[12]
-        # after_move[3] = self.data[21]
-        # after_move[6] = self.data[30]
-        # after_move[12] = self.data[36]
-        # after_move[21] = self.data[39]
-        # after_move[30] = self.data[42]
-        # after_move[36] = self.data[45]
-        # after_move[39] = self.data[48]
-        # after_move[42] = self.data[51]
-        # after_move[45] = self.data[0]
-        # after_move[48] = self.data[3]
-        # after_move[51] = self.data[6]
+        after_move[27] = self.data[47]
+        after_move[28] = self.data[46]
+        after_move[29] = self.data[45]
+        after_move[30] = self.data[27]
+        after_move[31] = self.data[28]
+        after_move[32] = self.data[29]
+        after_move[33] = self.data[30]
+        after_move[34] = self.data[31]
+        after_move[35] = self.data[32]
+        after_move[47] = self.data[33]
+        after_move[46] = self.data[34]
+        after_move[45] = self.data[35]
         after_move = "".join(after_move)
         return after_move
 
@@ -171,18 +183,18 @@ class ThreeByThreeModel:
 
     def _front_clockwise(self):
         after_move = list(self.data)
-        # after_move[0] = self.data[12]
-        # after_move[3] = self.data[21]
-        # after_move[6] = self.data[30]
-        # after_move[12] = self.data[36]
-        # after_move[21] = self.data[39]
-        # after_move[30] = self.data[42]
-        # after_move[36] = self.data[45]
-        # after_move[39] = self.data[48]
-        # after_move[42] = self.data[51]
-        # after_move[45] = self.data[0]
-        # after_move[48] = self.data[3]
-        # after_move[51] = self.data[6]
+        after_move[6] = self.data[29]
+        after_move[7] = self.data[20]
+        after_move[8] = self.data[11]
+        after_move[15] = self.data[6]
+        after_move[24] = self.data[7]
+        after_move[33] = self.data[8]
+        after_move[38] = self.data[15]
+        after_move[37] = self.data[24]
+        after_move[36] = self.data[33]
+        after_move[29] = self.data[38]
+        after_move[20] = self.data[37]
+        after_move[11] = self.data[36]
         after_move = "".join(after_move)
         return after_move
 
@@ -198,18 +210,18 @@ class ThreeByThreeModel:
 
     def _back_clockwise(self):
         after_move = list(self.data)
-        # after_move[0] = self.data[12]
-        # after_move[3] = self.data[21]
-        # after_move[6] = self.data[30]
-        # after_move[12] = self.data[36]
-        # after_move[21] = self.data[39]
-        # after_move[30] = self.data[42]
-        # after_move[36] = self.data[45]
-        # after_move[39] = self.data[48]
-        # after_move[42] = self.data[51]
-        # after_move[45] = self.data[0]
-        # after_move[48] = self.data[3]
-        # after_move[51] = self.data[6]
+        after_move[0] = self.data[17]
+        after_move[1] = self.data[26]
+        after_move[2] = self.data[35]
+        after_move[17] = self.data[44]
+        after_move[26] = self.data[43]
+        after_move[35] = self.data[42]
+        after_move[44] = self.data[27]
+        after_move[43] = self.data[18]
+        after_move[42] = self.data[9]
+        after_move[27] = self.data[0]
+        after_move[18] = self.data[1]
+        after_move[9] = self.data[2]
         after_move = "".join(after_move)
         return after_move
 
@@ -220,3 +232,84 @@ class ThreeByThreeModel:
     def _back_counter_clockwise(self):
         back_two = ThreeByThreeModel(data=self._back_two())
         return back_two._back_clockwise()
+
+######################################################################
+
+    def _middle_right_1(self):
+        after_move = list(self.data)
+        after_move[18] = self.data[50]
+        after_move[19] = self.data[49]
+        after_move[20] = self.data[48]
+        after_move[21] = self.data[18]
+        after_move[22] = self.data[19]
+        after_move[23] = self.data[20]
+        after_move[24] = self.data[21]
+        after_move[25] = self.data[22]
+        after_move[26] = self.data[23]
+        after_move[50] = self.data[24]
+        after_move[49] = self.data[25]
+        after_move[48] = self.data[26]
+        after_move = "".join(after_move)
+        return after_move
+
+    def _middle_right_2(self):
+        middle_right_1 = ThreeByThreeModel(data=self._middle_right_1())
+        return middle_right_1._middle_right_1()
+
+    def _middle_left_1(self):
+        middle_right_2 = ThreeByThreeModel(data=self._middle_right_2())
+        return middle_right_2._middle_right_1()
+
+######################################################################
+
+    def _middle_up_1(self):
+        after_move = list(self.data)
+        after_move[1] = self.data[13]
+        after_move[4] = self.data[22]
+        after_move[7] = self.data[31]
+        after_move[13] = self.data[37]
+        after_move[22] = self.data[40]
+        after_move[31] = self.data[43]
+        after_move[37] = self.data[46]
+        after_move[40] = self.data[49]
+        after_move[43] = self.data[52]
+        after_move[46] = self.data[1]
+        after_move[49] = self.data[4]
+        after_move[52] = self.data[7]
+        after_move = "".join(after_move)
+        return after_move
+
+    def _middle_up_2(self):
+        middle_up_1 = ThreeByThreeModel(data=self._middle_up_1())
+        return middle_up_1._middle_up_1()
+
+    def _middle_down_1(self):
+        middle_up_2 = ThreeByThreeModel(data=self._middle_up_2())
+        return middle_up_2._middle_up_1()
+
+######################################################################
+
+    def _middle_clockwise_1(self):
+        after_move = list(self.data)
+        after_move[3] = self.data[28]
+        after_move[4] = self.data[19]
+        after_move[5] = self.data[10]
+        after_move[16] = self.data[3]
+        after_move[25] = self.data[4]
+        after_move[34] = self.data[5]
+        after_move[41] = self.data[16]
+        after_move[40] = self.data[25]
+        after_move[39] = self.data[34]
+        after_move[28] = self.data[41]
+        after_move[19] = self.data[40]
+        after_move[10] = self.data[39]
+        after_move = "".join(after_move)
+        return after_move
+
+    def _middle_clockwise_2(self):
+        middle_clockwise_1 = ThreeByThreeModel(data=self._middle_clockwise_1())
+        return middle_clockwise_1._middle_clockwise_1()
+
+    def _middle_counterclockwise_1(self):
+        middle_clockwise_2 = ThreeByThreeModel(data=self._middle_clockwise_2())
+        return middle_clockwise_2._middle_clockwise_1()
