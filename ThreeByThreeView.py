@@ -1,5 +1,4 @@
 from tkinter import *
-from ThreeByThreeModel import ThreeByThreeModel
 from rubiks_square import rubiks_square
 from AStar import AStar
 

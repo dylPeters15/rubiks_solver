@@ -1,7 +1,8 @@
+from ThreeByThreeModel import ThreeByThreeModel
 from AStarPQ import AStarPQ
 
 def AStar(initialConfig):
-    pq = AStarPQ(initialConfig)
+    pq = AStarPQ(ThreeByThreeModel(data=initialConfig))
     while not pq.is_empty() and not pq.is_solved():
         current = pq.pop_min()
         for neighbor in pq.get_neighbors(current):

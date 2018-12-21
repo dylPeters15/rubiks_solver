@@ -5,6 +5,8 @@ from queue import PriorityQueue
 
 class AStarPQ():
     def __init__(self, initialConfig):
+        #TODO
+        return
 
     def is_empty(self):
         #TODO

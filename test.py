@@ -1,0 +1,3 @@
+from ThreeByThreeModel import ThreeByThreeModel
+initial_data = "ooooooooogggwwwbbbgggwwwbbbgggwwwbbbrrrrrrrrryyyyyyyyy"
+print(ThreeByThreeModel(initial_data).get_neighbors())
