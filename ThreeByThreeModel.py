@@ -62,7 +62,7 @@ class ThreeByThreeModel:
         return self.data.__hash__()
 
     def get_a_star_weight(self):
-        return self.dist*self.distance_from_solved
+        return self.dist+int(self.distance_from_solved/12)#+int(self.distance_from_solved/12)
 
     def get_neighbors(self):
         return [

@@ -9,10 +9,14 @@ def a_star(initial_config):
 
     num_iterations = 0
     while len(hd) > 0 and solved_config is None:
+        current = hd.popitem()[0]
         num_iterations += 1
         if num_iterations % 1000 == 0:
+            print(current)
             print("num_iterations: {}".format(num_iterations))
-        current = hd.popitem()[0]
+        if num_iterations > 50000:
+            print(current)
+            return a_star(current)
         # print("Current: {}".format(current))
         if current.is_solved():
             solved_config = current
@@ -24,7 +28,10 @@ def a_star(initial_config):
                 if neighbor.get_a_star_weight() < hd[neighbor]:
                     hd[neighbor] = neighbor.get_a_star_weight()
             else:
-                hd[neighbor] = neighbor.get_a_star_weight()
+                if neighbor.dist < 50:
+                    hd[neighbor] = neighbor.get_a_star_weight()
+                # else:
+                #     print("Found too high distance")
 
             if neighbor.is_solved():
                 solved_config = neighbor
