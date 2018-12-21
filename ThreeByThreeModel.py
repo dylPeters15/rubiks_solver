@@ -32,6 +32,12 @@ class ThreeByThreeModel:
     def is_solved(self):
         return self.data == ThreeByThreeModel.solved
 
+    def __repr__(self):
+        return self.__str__()
+
+    def __str__(self):
+        return "ThreeByThreeModel: data={}, dist={}, prev is none={}, in_edge={}".format(self.data, self.dist, self.prev == None, self.in_edge)
+
     def get_neighbors(self):
         return [
             self._left_up(),
@@ -88,15 +94,17 @@ class ThreeByThreeModel:
         after_move[48] = self.data[3]
         after_move[51] = self.data[6]
         after_move = "".join(after_move)
-        return after_move
+        return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Left Up")
 
     def _left_two(self):
-        left_up_1 = ThreeByThreeModel(data=self._left_up())
-        return left_up_1._left_up()
+        left_up_1 = self._left_up()
+        left_two = left_up_1._left_up()
+        return ThreeByThreeModel(data=left_two.data, dist=self.dist+1, prev=self, in_edge="Left 2")
 
     def _left_down(self):
-        left_two = ThreeByThreeModel(data=self._left_two())
-        return left_two._left_up()
+        left_two = self._left_two()
+        left_down = left_two._left_up()
+        return ThreeByThreeModel(data=left_down.data, dist=self.dist+1, prev=self, in_edge="Left Down")
 
 ######################################################################
 
@@ -115,15 +123,17 @@ class ThreeByThreeModel:
         after_move[50] = self.data[5]
         after_move[53] = self.data[8]
         after_move = "".join(after_move)
-        return after_move
+        return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Right Up")
 
     def _right_two(self):
-        right_up_1 = ThreeByThreeModel(data=self._right_up())
-        return right_up_1._right_up()
+        right_up_1 = self._right_up()
+        right_2 = right_up_1._right_up()
+        return ThreeByThreeModel(data=right_2.data, dist=self.dist+1, prev=self, in_edge="Right 2")
 
     def _right_down(self):
-        right_two = ThreeByThreeModel(data=self._right_two())
-        return right_two._right_up()
+        right_two = self._right_two()
+        right_down = right_two._right_up()
+        return ThreeByThreeModel(data=right_down.data, dist=self.dist+1, prev=self, in_edge="Right Down")
 
 ######################################################################
 
@@ -142,15 +152,17 @@ class ThreeByThreeModel:
         after_move[52] = self.data[16]
         after_move[51] = self.data[17]
         after_move = "".join(after_move)
-        return after_move
+        return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Top Right")
 
     def _top_two(self):
-        top_right_1 = ThreeByThreeModel(data=self._top_right())
-        return top_right_1._top_right()
+        top_right_1 = self._top_right()
+        top_2 = top_right_1._top_right()
+        return ThreeByThreeModel(data=top_2.data, dist=self.dist+1, prev=self, in_edge="Top 2")
 
     def _top_left(self):
-        top_two = ThreeByThreeModel(data=self._top_two())
-        return top_two._top_right()
+        top_two = self._top_two()
+        top_left = top_two._top_right()
+        return ThreeByThreeModel(data=top_left.data, dist=self.dist+1, prev=self, in_edge="Top Left")
 
 ######################################################################
 
@@ -169,15 +181,17 @@ class ThreeByThreeModel:
         after_move[46] = self.data[34]
         after_move[45] = self.data[35]
         after_move = "".join(after_move)
-        return after_move
+        return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Bottom Right")
 
     def _bottom_two(self):
-        bottom_right_1 = ThreeByThreeModel(data=self._bottom_right())
-        return bottom_right_1._bottom_right()
+        bottom_right_1 = self._bottom_right()
+        bottom_2 = bottom_right_1._bottom_right()
+        return ThreeByThreeModel(data=bottom_2.data, dist=self.dist+1, prev=self, in_edge="Bottom 2")
 
     def _bottom_left(self):
-        bottom_two = ThreeByThreeModel(data=self._bottom_two())
-        return bottom_two._bottom_right()
+        bottom_two = self._bottom_two()
+        bottom_left = bottom_two._bottom_right()
+        return ThreeByThreeModel(data=bottom_left.data, dist=self.dist+1, prev=self, in_edge="Bottom Left")
 
 ######################################################################
 
@@ -196,15 +210,17 @@ class ThreeByThreeModel:
         after_move[20] = self.data[37]
         after_move[11] = self.data[36]
         after_move = "".join(after_move)
-        return after_move
+        return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Front Clockwise")
 
     def _front_two(self):
-        front_clockwise_1 = ThreeByThreeModel(data=self._front_clockwise())
-        return front_clockwise_1._front_clockwise()
+        front_clockwise_1 = self._front_clockwise()
+        front_2 = front_clockwise_1._front_clockwise()
+        return ThreeByThreeModel(data=front_2.data, dist=self.dist+1, prev=self, in_edge="Front 2")
 
     def _front_counter_clockwise(self):
-        front_two = ThreeByThreeModel(data=self._front_two())
-        return front_two._front_clockwise()
+        front_two = self._front_two()
+        front_cc = front_two._front_clockwise()
+        return ThreeByThreeModel(data=front_cc.data, dist=self.dist+1, prev=self, in_edge="Front Counterclockwise")
 
 ######################################################################
 
@@ -223,15 +239,17 @@ class ThreeByThreeModel:
         after_move[18] = self.data[1]
         after_move[9] = self.data[2]
         after_move = "".join(after_move)
-        return after_move
+        return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Back Clockwise")
 
     def _back_two(self):
-        back_clockwise_1 = ThreeByThreeModel(data=self._back_clockwise())
-        return back_clockwise_1._back_clockwise()
+        back_clockwise_1 = self._back_clockwise()
+        back_2 = back_clockwise_1._back_clockwise()
+        return ThreeByThreeModel(data=back_2.data, dist=self.dist+1, prev=self, in_edge="Back 2")
 
     def _back_counter_clockwise(self):
-        back_two = ThreeByThreeModel(data=self._back_two())
-        return back_two._back_clockwise()
+        back_two = self._back_two()
+        back_cc = back_two._back_clockwise()
+        return ThreeByThreeModel(data=back_cc.data, dist=self.dist+1, prev=self, in_edge="Back Counterclockwise")
 
 ######################################################################
 
@@ -250,15 +268,17 @@ class ThreeByThreeModel:
         after_move[49] = self.data[25]
         after_move[48] = self.data[26]
         after_move = "".join(after_move)
-        return after_move
+        return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Middle Right")
 
     def _middle_right_2(self):
-        middle_right_1 = ThreeByThreeModel(data=self._middle_right_1())
-        return middle_right_1._middle_right_1()
+        middle_right_1 = self._middle_right_1()
+        middle_2 = middle_right_1._middle_right_1()
+        return ThreeByThreeModel(data=middle_2.data, dist=self.dist+1, prev=self, in_edge="Middle Right 2")
 
     def _middle_left_1(self):
-        middle_right_2 = ThreeByThreeModel(data=self._middle_right_2())
-        return middle_right_2._middle_right_1()
+        middle_right_2 = self._middle_right_2()
+        middle_left = middle_right_2._middle_right_1()
+        return ThreeByThreeModel(data=middle_left.data, dist=self.dist+1, prev=self, in_edge="Middle Left")
 
 ######################################################################
 
@@ -277,15 +297,17 @@ class ThreeByThreeModel:
         after_move[49] = self.data[4]
         after_move[52] = self.data[7]
         after_move = "".join(after_move)
-        return after_move
+        return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Middle Up")
 
     def _middle_up_2(self):
-        middle_up_1 = ThreeByThreeModel(data=self._middle_up_1())
-        return middle_up_1._middle_up_1()
+        middle_up_1 = self._middle_up_1()
+        middle_2 = middle_up_1._middle_up_1()
+        return ThreeByThreeModel(data=middle_2.data, dist=self.dist+1, prev=self, in_edge="Middle Up 2")
 
     def _middle_down_1(self):
-        middle_up_2 = ThreeByThreeModel(data=self._middle_up_2())
-        return middle_up_2._middle_up_1()
+        middle_up_2 = self._middle_up_2()
+        middle_down = middle_up_2._middle_up_1()
+        return ThreeByThreeModel(data=middle_down.data, dist=self.dist+1, prev=self, in_edge="Middle Down")
 
 ######################################################################
 
@@ -304,12 +326,14 @@ class ThreeByThreeModel:
         after_move[19] = self.data[40]
         after_move[10] = self.data[39]
         after_move = "".join(after_move)
-        return after_move
+        return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Middle Clockwise")
 
     def _middle_clockwise_2(self):
-        middle_clockwise_1 = ThreeByThreeModel(data=self._middle_clockwise_1())
-        return middle_clockwise_1._middle_clockwise_1()
+        middle_clockwise_1 = self._middle_clockwise_1()
+        middle_2 = middle_clockwise_1._middle_clockwise_1()
+        return ThreeByThreeModel(data=middle_2.data, dist=self.dist+1, prev=self, in_edge="Middle Clockwise 2")
 
     def _middle_counterclockwise_1(self):
-        middle_clockwise_2 = ThreeByThreeModel(data=self._middle_clockwise_2())
-        return middle_clockwise_2._middle_clockwise_1()
+        middle_clockwise_2 = self._middle_clockwise_2()
+        middle_cc = middle_clockwise_2._middle_clockwise_1()
+        return ThreeByThreeModel(data=middle_cc.data, dist=self.dist+1, prev=self, in_edge="Middle Counterclockwise")
