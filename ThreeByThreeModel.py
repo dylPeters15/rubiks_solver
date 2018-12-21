@@ -77,6 +77,9 @@ class ThreeByThreeModel:
             self._middle_counterclockwise_1()
         ]
 
+    def get_neighbors_data_only(self):
+        return [neighbor.data for neighbor in self.get_neighbors()]
+
 ######################################################################
 
     def _left_up(self):
