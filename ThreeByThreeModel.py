@@ -36,7 +36,26 @@ class ThreeByThreeModel:
         return self.__str__()
 
     def __str__(self):
-        return "ThreeByThreeModel: data={}, dist={}, prev is none={}, in_edge={}".format(self.data, self.dist, self.prev == None, self.in_edge)
+        return "ThreeByThreeModel: data={}, dist+dist_from_solved: {}, dist={}, in_edge={}".format(self.data, self.dist+self.distance_from_solved, self.dist, self.in_edge)
+
+    #Methods used for sorting:
+    def __lt__(self, other):
+        return self.dist + self.distance_from_solved < other.dist + other.distance_from_solved
+
+    def __le__(self, other):
+        return self.dist + self.distance_from_solved <= other.dist + other.distance_from_solved
+
+    def __eq__(self, other):
+        return self.dist + self.distance_from_solved == other.dist + other.distance_from_solved
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __gt__(self, other):
+        return self.dist + self.distance_from_solved > other.dist + other.distance_from_solved
+
+    def __ge__(self, other):
+        return self.dist + self.distance_from_solved >= other.dist + other.distance_from_solved
 
     def get_neighbors(self):
         return [

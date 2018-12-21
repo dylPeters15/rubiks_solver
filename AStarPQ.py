@@ -1,8 +1,5 @@
 from queue import PriorityQueue
 
-#Structure of object to be sorted:
-#(g+h, g, h, string)
-
 class AStarPQ():
     def __init__(self, initialConfig):
         #TODO
