@@ -122,6 +122,15 @@ class ThreeByThreeModel:
         after_move[45] = self.data[0]
         after_move[48] = self.data[3]
         after_move[51] = self.data[6]
+
+        after_move[9] = self.data[11]
+        after_move[10] = self.data[20]
+        after_move[11] = self.data[29]
+        after_move[20] = self.data[28]
+        after_move[29] = self.data[27]
+        after_move[28] = self.data[18]
+        after_move[27] = self.data[9]
+        after_move[18] = self.data[10]
         after_move = "".join(after_move)
         return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Left Up")
 
@@ -151,6 +160,15 @@ class ThreeByThreeModel:
         after_move[47] = self.data[2]
         after_move[50] = self.data[5]
         after_move[53] = self.data[8]
+
+        after_move[17] = self.data[15]
+        after_move[16] = self.data[24]
+        after_move[15] = self.data[33]
+        after_move[24] = self.data[34]
+        after_move[33] = self.data[35]
+        after_move[34] = self.data[26]
+        after_move[35] = self.data[17]
+        after_move[26] = self.data[16]
         after_move = "".join(after_move)
         return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Right Up")
 
@@ -180,6 +198,15 @@ class ThreeByThreeModel:
         after_move[53] = self.data[15]
         after_move[52] = self.data[16]
         after_move[51] = self.data[17]
+
+        after_move[0] = self.data[2]
+        after_move[1] = self.data[5]
+        after_move[2] = self.data[8]
+        after_move[5] = self.data[7]
+        after_move[8] = self.data[6]
+        after_move[7] = self.data[3]
+        after_move[6] = self.data[0]
+        after_move[3] = self.data[1]
         after_move = "".join(after_move)
         return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Top Right")
 
@@ -209,6 +236,15 @@ class ThreeByThreeModel:
         after_move[47] = self.data[33]
         after_move[46] = self.data[34]
         after_move[45] = self.data[35]
+
+        after_move[38] = self.data[36]
+        after_move[37] = self.data[39]
+        after_move[36] = self.data[42]
+        after_move[39] = self.data[43]
+        after_move[42] = self.data[44]
+        after_move[43] = self.data[41]
+        after_move[44] = self.data[38]
+        after_move[41] = self.data[37]
         after_move = "".join(after_move)
         return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Bottom Right")
 
@@ -238,6 +274,15 @@ class ThreeByThreeModel:
         after_move[29] = self.data[38]
         after_move[20] = self.data[37]
         after_move[11] = self.data[36]
+
+        after_move[14] = self.data[12]
+        after_move[13] = self.data[21]
+        after_move[12] = self.data[30]
+        after_move[21] = self.data[31]
+        after_move[30] = self.data[32]
+        after_move[31] = self.data[23]
+        after_move[32] = self.data[14]
+        after_move[23] = self.data[13]
         after_move = "".join(after_move)
         return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Front Clockwise")
 
@@ -267,6 +312,15 @@ class ThreeByThreeModel:
         after_move[27] = self.data[0]
         after_move[18] = self.data[1]
         after_move[9] = self.data[2]
+
+        after_move[47] = self.data[45]
+        after_move[46] = self.data[48]
+        after_move[45] = self.data[51]
+        after_move[48] = self.data[52]
+        after_move[51] = self.data[53]
+        after_move[52] = self.data[50]
+        after_move[53] = self.data[47]
+        after_move[50] = self.data[46]
         after_move = "".join(after_move)
         return ThreeByThreeModel(data=after_move, dist=self.dist+1, prev=self, in_edge="Back Clockwise")
 

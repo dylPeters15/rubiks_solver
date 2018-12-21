@@ -72,6 +72,10 @@ class ThreeByThreeView:
                 self.rubiks_squares.append(rubiks_square(canvas=self.canvas, x=x, y=y, size=self.square_size, fill=fill))
                 #print "(x,y): ({}, {})".format(x,y)
 
+        middle_squares = [4, 19, 22, 25, 40, 49]
+        for square_index in middle_squares:
+            self.rubiks_squares[square_index].set_modifiable(False)
+
         Button(self.window,
                   text="Solve", command=self.solve).place(x=0, y=0)
 

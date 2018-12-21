@@ -9,11 +9,13 @@ def a_star(initial_config):
 
     while len(hd) > 0 and solved_config is None:
         current = hd.popitem()[0]
+        print("Current: {}".format(current))
         if current.is_solved():
             solved_config = current
             break
 
         for neighbor in current.get_neighbors():
+            print("Neighbor: {}".format(neighbor))
             if neighbor in hd:
                 if neighbor.get_a_star_weight() < hd[neighbor]:
                     hd[neighbor] = neighbor.get_a_star_weight()
@@ -23,13 +25,14 @@ def a_star(initial_config):
             if neighbor.is_solved():
                 solved_config = neighbor
                 break
+        # return []
 
     return _get_path(initial_config, solved_config)
 
 
 def _get_path(initial_config, solved_config):
-    print(initial_config)
-    print(solved_config)
+    print("Initial: {}".format(initial_config))
+    print("Solved: {}".format(solved_config))
 
     reverse_path = [solved_config]
     while reverse_path[len(reverse_path) - 1].prev is not None and reverse_path[len(reverse_path) - 1].prev.data != initial_config.data:
