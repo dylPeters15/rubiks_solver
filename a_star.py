@@ -1,6 +1,7 @@
 from ThreeByThreeModel import ThreeByThreeModel
 from heapdict.heapdict import heapdict
 
+
 def a_star(initial_config):
     hd = heapdict()
     solved_config = None
@@ -14,8 +15,8 @@ def a_star(initial_config):
 
         for neighbor in current.get_neighbors():
             if neighbor in hd:
-                if neighbor.get_a_star_weight < hd[neighbor]:
-                    hd[neighbor] = neighbor.get_a_star_weight
+                if neighbor.get_a_star_weight() < hd[neighbor]:
+                    hd[neighbor] = neighbor.get_a_star_weight()
             else:
                 hd[neighbor] = neighbor.get_a_star_weight()
 
@@ -24,6 +25,7 @@ def a_star(initial_config):
                 break
 
     return _get_path(initial_config, solved_config)
+
 
 def _get_path(initial_config, solved_config):
     print(initial_config)
